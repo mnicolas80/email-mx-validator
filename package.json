@@ -1,5 +1,5 @@
 {
-  "name": "email-validator",
+  "name": "email-mx-validator",
   "version": "1.0.0",
   "description": "NodeJS email validation with syntax validation and MX lookup",
   "main": "index.js",
