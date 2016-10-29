@@ -13,7 +13,7 @@ exports.validEmail = function validEmail(email, cb) {
 
   // Validate domain MX records
   var domain = email.split('@')[1];  
-  dns.resolve(domain, 'MX', (err, addresses) => {    
+  dns.resolve(domain, 'MX', function(err, addresses) {    
     if (err) {
       valid = false;      
     } else if (addresses && addresses.length > 0) {      
