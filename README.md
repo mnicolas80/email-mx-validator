@@ -1,4 +1,4 @@
-# Email-validator
+# Email-mx-validator
 A email validation package for **NodeJS**
 
 # Installation
