@@ -1,11 +1,11 @@
 {
   "name": "email-mx-validator",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "NodeJS email validation with syntax validation and MX lookup",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "http://github.com/mnicolas80/email-validator.git"
+    "url": "http://github.com/mnicolas80/email-mx-validator.git"
   },
   "keywords": [
     "server-side",
