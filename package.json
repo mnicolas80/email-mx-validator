@@ -1,0 +1,28 @@
+{
+  "name": "email-validator",
+  "version": "1.0.0",
+  "description": "server-side email validation with MX lookup",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/mnicolas80/nodejs-email-validator.git"
+  },
+  "keywords": [
+    "server-side",
+    "email",
+    "validation",
+    "mx",
+    "npm",
+    "nodejs",    
+    "javascript"
+  ],
+  "dependencies": {
+    "JSONStream": "^1.0.3"
+  },
+  "author": {
+    "name": "Nikolaos Michaleas",
+    "email": "mnicolas80@gmail.com",
+    "url": "http://michaleas.me"
+  },
+  "license": "MIT"
+}
