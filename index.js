@@ -2,18 +2,28 @@
 var dns = require('dns');
 var valid = false;
 var regEx = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
+var cbCalled = false;
 
-exports.validEmail = function validEmail(email, cb) {
+exports.validEmail = function validEmail(email, cb, tmo) {
   // Validate email syntax
+  var timeout = typeof(tmo) === 'undefined' ? 10000 : tmo;
   if (!email.match(regEx)) {
     valid = false;
     cb(valid);
     return;
   }  
 
+  var validationTmo = setTimeout(function(){
+    valid = false;
+    cb(valid);
+    cbCalled = true;
+  }, timeout);
+
   // Validate domain MX records
   var domain = email.split('@')[1];  
-  dns.resolve(domain, 'MX', function(err, addresses) {    
+  dns.resolve(domain, 'MX', function(err, addresses) {  
+    clearTimeout(validationTmo)
+    if (cbCalled) return; 
     if (err) {
       valid = false;      
     } else if (addresses && addresses.length > 0) {      
