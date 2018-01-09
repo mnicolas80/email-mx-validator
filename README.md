@@ -10,7 +10,12 @@ npm install -g email-mx-validator
 ```javascript
 var ev = require('email-mx-validator');
 
-ev.validEmail('mnicolas80@gmail.com', function(valid) {
+ev.validEmail('mnicolas80@gmail.com', function(error,valid) {
+  if(error){
+
+  } else {
+    
+  }
   // returns true, because the syntax of the given email address is correct and the email address has at least one DNS MX record.
 });
 ```
