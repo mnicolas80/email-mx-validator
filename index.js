@@ -14,13 +14,7 @@ exports.validEmail = function validEmail(email, cb) {
   // Validate domain MX records
   var domain = email.split('@')[1];  
   dns.resolve(domain, 'MX', function(err, addresses) {    
-    if (err) {
-      valid = false;      
-    } else if (addresses && addresses.length > 0) {      
-      valid = true;
-    } else {
-      valid = false;
-    }
-    cb(valid);    
+    if (err) return cb(err);
+    cb(null,addresses && addresses.length > 0);
   });
 }
