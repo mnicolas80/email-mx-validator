@@ -3,10 +3,11 @@ var dns = require('dns');
 var valid = false;
 var regEx = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
 var cbCalled = false;
+var defaultTmo = 10000;
 
 exports.validEmail = function validEmail(email, cb, tmo) {
   // Validate email syntax
-  var timeout = typeof(tmo) === 'undefined' ? 10000 : tmo;
+  var timeout = typeof(tmo) === 'undefined' ? defaultTmo : tmo;
   if (!email.match(regEx)) {
     valid = false;
     cb(valid);
